@@ -49,7 +49,7 @@ async def connect_to_known_device(address):
         data_to_send = bytes([0x01, 0x02, 0x03, 0x04])  # 示例数据
         # 写入数据到指定的特性
         try:
-            await client.write_gatt_char(UUID_CRAZYFLIE_CRTP_UUID, data_to_send)
+            await client.write_gatt_char(UUID_CRAZYFLIE_CRTP_UUID, data_to_send,response=False)
             print("Data written to characteristic")
         except Exception as e:
             print(print(f"Failed to send data to {address}: {e}"))
